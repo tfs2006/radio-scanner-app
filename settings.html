@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Boy and a Scanner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Settings</h1>
+    <p class="tagline">Configure your Radio Reference credentials</p>
+  </header>
+
+  <section class="settings-form">
+    <div class="form-group">
+      <label for="username" class="input-label">Username</label>
+      <input type="text" id="username" class="text-input" placeholder="Enter username">
+    </div>
+    <div class="form-group">
+      <label for="apiKey" class="input-label">API Key</label>
+      <input type="password" id="apiKey" class="text-input" placeholder="Enter API key">
+    </div>
+    <button id="save-credentials" class="search-btn">Save Credentials</button>
+    <p><a href="index.html">Back to Search</a></p>
+  </section>
+
+  <script>
+    // Load saved credentials on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const username = localStorage.getItem('rr_username');
+      const apiKey = localStorage.getItem('rr_apiKey');
+      if (username) document.getElementById('username').value = username;
+      if (apiKey) document.getElementById('apiKey').value = apiKey;
+    });
+
+    // Save credentials when button clicked
+    document.getElementById('save-credentials').addEventListener('click', function() {
+      const usernameValue = document.getElementById('username').value.trim();
+      const apiKeyValue = document.getElementById('apiKey').value.trim();
+      if (usernameValue && apiKeyValue) {
+        localStorage.setItem('rr_username', usernameValue);
+        localStorage.setItem('rr_apiKey', apiKeyValue);
+        alert('Credentials saved successfully!');
+      } else {
+        alert('Please enter both username and API key.');
+      }
+    });
+  </script>
+</body>
+</html>
