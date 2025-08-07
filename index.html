@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boy and a Scanner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Boy and a Scanner</h1>
+    <p class="tagline">Find radio frequencies in your area</p>
+  </header>
+
+  <!-- Notice section shows when running in demo mode -->
+  <section class="notice" id="notice">
+    <strong>Demo Mode</strong> — This app is currently showing sample data.
+    <span>Configure Radio Reference credentials to enable real API access.</span>
+  </section>
+
+  <!-- Search section -->
+  <section class="search">
+    <h2>Search Frequencies</h2>
+    <p>Enter your zip code and select radio types to find local frequencies</p>
+    <div class="form-group">
+      <label for="zip-input" class="input-label">Zip Code</label>
+      <input type="text" id="zip-input" class="text-input" placeholder="Enter zip code" />
+    </div>
+    <fieldset class="checkbox-group">
+      <legend>Select Radio Types</legend>
+      <label><input type="checkbox" value="P25" /> P25</label>
+      <label><input type="checkbox" value="DMR" /> DMR</label>
+      <label><input type="checkbox" value="NXDN" /> NXDN</label>
+      <label><input type="checkbox" value="Analog" /> Analog</label>
+      <label><input type="checkbox" value="Trunked" /> Trunked</label>
+      <label><input type="checkbox" value="Conventional" /> Conventional</label>
+    </fieldset>
+    <button id="search-btn" class="btn">Search</button>
+    <!-- Results will be populated here -->
+    <div id="results" class="results"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
